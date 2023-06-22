@@ -3,9 +3,16 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script>
+      window.onload = function () {
+        if (!window.location.hash) {
+          window.location = window.location + "#loaded";
+          window.location.reload();
+        }
+      };
+    </script>
 
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-
     <meta name="copyright" content="MACode ID, https://www.macodeid.com/" />
 
     <title>Tiago Alves</title>
@@ -186,7 +193,8 @@
       </div>
       <!-- End Navbar -->
       <!-- Caption header -->
-      <div class="caption-header text-center wow zoomInDown">
+      <!-- <div class="caption-header text-center wow zoomInDown"> -->
+      <div class="caption-header text-center wow">
         <h5 class="fw-normal">Welcome</h5>
         <h1 class="fw-light mb-4">I'm <b class="fg-theme">Tiago</b> Alves</h1>
         <div class="badge">Machine Learning & Software Engineer</div>
