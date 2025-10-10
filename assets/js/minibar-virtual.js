@@ -106,11 +106,20 @@ $(document).ready(function() {
     itemSelector: '.grid-item',
     percentPosition: true
   });
+
+  // Ensure Isotope recalculates after images and window load
+  var relayout = function(){ $grid.isotope('layout'); };
+  $(window).on('load', relayout);
+  $('.gridder img').each(function(){
+    if (this.complete) return;
+    $(this).on('load', relayout);
+  });
   
   // filter items on button click
   $('.filterable-button').on( 'click', 'button', function() {
     var filterValue = $(this).attr('data-filter');
     $grid.isotope({ filter: filterValue });
+    $grid.one('arrangeComplete', relayout);
   });
   
   $('.testi-carousel').owlCarousel({
